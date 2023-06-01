@@ -1,0 +1,233 @@
+[
+  {
+    "menuId": 0,
+    "menuName": "Project",
+    "menuStatus": 2,
+    "authMenuList": [
+      {
+        "menuId": 1,
+        "menuName": "Home",
+        "menuStatus": 1,
+        "authList": [
+          {
+            "id": 11,
+            "name": "View",
+            "authStatus": 1,
+            "preAccessIds": [],
+            "postAccessIds": []
+          }
+        ]
+      },
+      {
+        "menuId": 2,
+        "menuName": "About",
+        "menuStatus": 3,
+        "authMenuList": [
+          {
+            "menuId": 21,
+            "menuName": "About1",
+            "menuStatus": 3,
+            "authList": [
+              {
+                "id": 211,
+                "name": "View",
+                "authStatus": 2,
+                "preAccessIds": [],
+                "postAccessIds": [212, 213, 214]
+              },
+              {
+                "id": 212,
+                "name": "Add",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 213,
+                "name": "Edit",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 214,
+                "name": "Delete",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              }
+            ]
+          },
+          {
+            "menuId": 22,
+            "menuName": "About2",
+            "menuStatus": 3,
+            "authList": [
+              {
+                "id": 221,
+                "name": "View",
+                "authStatus": 2,
+                "preAccessIds": [],
+                "postAccessIds": [212, 213, 214]
+              },
+              {
+                "id": 222,
+                "name": "Add",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 223,
+                "name": "Edit",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 224,
+                "name": "Delete",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 225,
+                "name": "Import",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 226,
+                "name": "Export",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 227,
+                "name": "Upload",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 228,
+                "name": "DownLoad",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "menuId": 3,
+        "menuName": "Settings",
+        "menuStatus": 3,
+        "authMenuList": [
+          {
+            "menuId": 31,
+            "menuName": "Settings1",
+            "menuStatus": 3,
+            "authList": [
+              {
+                "id": 311,
+                "name": "View",
+                "authStatus": 2,
+                "preAccessIds": [],
+                "postAccessIds": [212, 213, 214]
+              },
+              {
+                "id": 312,
+                "name": "Add",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 313,
+                "name": "Edit",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 314,
+                "name": "Delete",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              }
+            ]
+          },
+          {
+            "menuId": 32,
+            "menuName": "Settings2",
+            "menuStatus": 3,
+            "authList": [
+              {
+                "id": 321,
+                "name": "View",
+                "authStatus": 2,
+                "preAccessIds": [],
+                "postAccessIds": [212, 213, 214]
+              },
+              {
+                "id": 322,
+                "name": "Add",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 323,
+                "name": "Edit",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 324,
+                "name": "Delete",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 325,
+                "name": "Import",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 326,
+                "name": "Export",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 327,
+                "name": "Upload",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              },
+              {
+                "id": 328,
+                "name": "DownLoad",
+                "authStatus": 2,
+                "preAccessIds": [211],
+                "postAccessIds": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
