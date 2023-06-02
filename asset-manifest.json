@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/RBAC-checkbox-tree-demo/static/css/main.55ad62fd.css",
+    "main.js": "/RBAC-checkbox-tree-demo/static/js/main.c67fa7f6.js",
+    "static/js/787.c0ae721f.chunk.js": "/RBAC-checkbox-tree-demo/static/js/787.c0ae721f.chunk.js",
+    "index.html": "/RBAC-checkbox-tree-demo/index.html",
+    "main.55ad62fd.css.map": "/RBAC-checkbox-tree-demo/static/css/main.55ad62fd.css.map",
+    "main.c67fa7f6.js.map": "/RBAC-checkbox-tree-demo/static/js/main.c67fa7f6.js.map",
+    "787.c0ae721f.chunk.js.map": "/RBAC-checkbox-tree-demo/static/js/787.c0ae721f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55ad62fd.css",
+    "static/js/main.c67fa7f6.js"
+  ]
+}
