@@ -5,7 +5,7 @@ import { UpOutlined } from "@ant-design/icons";
 // types
 import { AuthItemType, AuthMenuItemType } from "../../App";
 // styles
-import "./style.css";
+import "./style.scss";
 
 type IPropsType = {
   data: AuthMenuItemType;
@@ -40,7 +40,7 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
 
   // template
   return (
-    <div className={"checkboxTree"}>
+    <div className="checkboxTree">
       <div className="treeMenu">
         <span className="arrow">
           <UpOutlined
