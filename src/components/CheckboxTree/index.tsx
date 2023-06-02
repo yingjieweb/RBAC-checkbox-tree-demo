@@ -3,18 +3,19 @@ import React, { useEffect, useState } from "react";
 import { Checkbox } from "antd";
 import { UpOutlined } from "@ant-design/icons";
 // types
-import { AuthMenuItemType } from "../../App";
+import { AuthItemType, AuthMenuItemType } from "../../App";
 // styles
 import "./style.css";
 
 type IPropsType = {
   data: AuthMenuItemType;
-  updateMenuStatus: (arg0: number) => void;
+  updateMenuStatus: (arg0: number, arg1: number) => void;
   updateAuthStatus: (
     arg0: number,
-    arg1: number[],
+    arg1: 1 | 2,
     arg2: number[],
-    arg4: 1 | 2
+    arg3: number[],
+    arg4: number
   ) => void;
 };
 
@@ -23,7 +24,13 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
   const { data, updateMenuStatus, updateAuthStatus } = props;
 
   // states
-  const [treeData, setTreeData] = useState<any>({});
+  const [treeData, setTreeData] = useState<AuthMenuItemType>({
+    menuId: 0,
+    menuName: "Project",
+    menuStatus: 2,
+    moduleId: 1,
+    authMenuList: [],
+  });
   const [isCollapse, setIsCollapse] = useState(true);
 
   // watch
@@ -47,7 +54,7 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
           checked={treeData.menuStatus === 1}
           indeterminate={treeData.menuStatus === 2}
           onChange={() => {
-            updateMenuStatus(treeData.menuId);
+            updateMenuStatus(treeData.menuId, treeData.moduleId);
           }}
         >
           <span className="label">{treeData.menuName}</span>
@@ -56,7 +63,7 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
       <div className="treeMenuContent">
         {treeData?.authMenuList &&
           isCollapse &&
-          treeData.authMenuList.map((it: any, index: number) => (
+          treeData.authMenuList.map((it: AuthMenuItemType, index: number) => (
             <CheckboxTree
               key={index}
               data={it}
@@ -66,7 +73,7 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
           ))}
         {treeData.authList &&
           isCollapse &&
-          treeData.authList.map((it: any, index: number) => (
+          treeData.authList.map((it: AuthItemType, index: number) => (
             <>
               <div className="treeMenuItem" key={index}>
                 <Checkbox
@@ -75,9 +82,10 @@ const CheckboxTree: React.FC<IPropsType> = (props) => {
                   onChange={() => {
                     updateAuthStatus(
                       it.id,
-                      it.preAccessIds,
-                      it.postAccessIds,
-                      it.authStatus === 1 ? 2 : 1
+                      it.authStatus === 1 ? 2 : 1,
+                      it.preAuthIds,
+                      it.postAuthIds,
+                      it.moduleId
                     );
                   }}
                 >

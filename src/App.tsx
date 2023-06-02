@@ -3,6 +3,15 @@ import React, { useEffect, useState } from "react";
 import CheckboxTree from "./components/CheckboxTree";
 // constants
 import TEST_DATA from "./db/data.json";
+// utils
+import {
+  findCurAuthTree,
+  updateMenuAndDescendantStatus,
+  updateAuthTreeStatus,
+  updateAuthNodeStatus,
+  updatePreAuthNodeStatus,
+  updatePostAuthNodeStatus,
+} from "./utils";
 // styles
 import "./App.css";
 
@@ -11,36 +20,70 @@ export type AuthItemType = {
   id: number;
   name: string;
   authStatus: number;
-  preAccessIds: number[];
-  postAccessIds: number[];
+  moduleId: number;
+  preAuthIds: number[];
+  postAuthIds: number[];
 };
 export type AuthMenuItemType = {
   menuId: number;
   menuName: string;
   menuStatus: number;
+  moduleId: number;
   authMenuList?: AuthMenuItemType[];
   authList?: AuthItemType[];
 };
-export type AuthTreeType = AuthMenuItemType[];
+export type AuthTreeListType = AuthMenuItemType[];
 
 const App: React.FC = () => {
   // states
-  const [authTreeList, setAuthTreeList] = useState<AuthTreeType>([]);
+  const [authTreeList, setAuthTreeList] = useState<AuthTreeListType>([]);
 
   // methods
-  const updateMenuStatus = (menuId: number) => {
-    console.log({menuId});
+  const updateMenuStatus = (menuId: number, moduleId: number) => {
+    const curAuthTree = findCurAuthTree(authTreeList, moduleId);
+    const updatedAuthTree = updateMenuAndDescendantStatus(curAuthTree, menuId);
+    const updatedFinalAuthTree = updateAuthTreeStatus(updatedAuthTree);
+    setAuthTreeList((oldList) => {
+      return oldList.map((item) => {
+        if (item.moduleId === moduleId) {
+          return updatedFinalAuthTree as AuthMenuItemType;
+        }
+        return item;
+      });
+    });
   };
   const updateAuthStatus = (
     authId: number,
-    preAccessIds: number[],
-    postAccessIds: number[],
-    nextStatus: number
+    nextStatus: 1 | 2,
+    preAuthIds: number[],
+    postAuthIds: number[],
+    moduleId: number
   ) => {
-    console.log({authId});
-    console.log({preAccessIds});
-    console.log({postAccessIds});
-    console.log({nextStatus});
+    const curAuthTree = findCurAuthTree(authTreeList, moduleId);
+    let updatedAuthTree = updateAuthNodeStatus(curAuthTree, authId);
+    if (preAuthIds.length) {
+      updatedAuthTree = updatePreAuthNodeStatus(
+        updatedAuthTree as AuthMenuItemType,
+        preAuthIds,
+        nextStatus
+      );
+    }
+    if (postAuthIds) {
+      updatedAuthTree = updatePostAuthNodeStatus(
+        updatedAuthTree as AuthMenuItemType,
+        postAuthIds,
+        nextStatus
+      );
+    }
+    const updatedFinalAuthTree = updateAuthTreeStatus(updatedAuthTree);
+    setAuthTreeList((oldList) => {
+      return oldList.map((item) => {
+        if (item.moduleId === moduleId) {
+          return updatedFinalAuthTree as AuthMenuItemType;
+        }
+        return item;
+      });
+    });
   };
 
   // watch
