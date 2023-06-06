@@ -12,8 +12,6 @@ import {
   updatePreAuthNodeStatus,
   updatePostAuthNodeStatus,
 } from "./utils";
-// styles
-import "./App.css";
 
 // types
 export type AuthItemType = {
